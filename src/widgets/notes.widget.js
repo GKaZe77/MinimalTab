@@ -1,5 +1,5 @@
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { esc } from "../core/dom.js?v=2026-06-14-3";
+﻿import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { esc } from "../core/dom.js?v=2026-06-15-1";
 
 export const NotesWidget = {
   id: "notes",

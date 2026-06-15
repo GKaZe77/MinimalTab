@@ -1,8 +1,8 @@
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { esc } from "../core/dom.js?v=2026-06-14-3";
-import { fetchWeather } from "../integrations/weather.js?v=2026-06-14-3";
-import { WEATHER_CODES } from "../core/constants.js?v=2026-06-14-3";
-import { state } from "../core/config.js?v=2026-06-14-3";
+﻿import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { esc } from "../core/dom.js?v=2026-06-15-1";
+import { fetchWeather } from "../integrations/weather.js?v=2026-06-15-1";
+import { WEATHER_CODES } from "../core/constants.js?v=2026-06-15-1";
+import { state } from "../core/config.js?v=2026-06-15-1";
 
 export const WeatherWidget = {
   id: "weather",
@@ -70,6 +70,6 @@ function renderWeatherContent(container, wx, wCfg) {
   `;
 
   container.querySelector("#wx-refresh")?.addEventListener("click", () => {
-    import("../integrations/weather.js?v=2026-06-14-3").then(m => { m.clearWeatherCache(); bus.emit("weather:refresh"); });
+    import("../integrations/weather.js?v=2026-06-15-1").then(m => { m.clearWeatherCache(); bus.emit("weather:refresh"); });
   });
 }

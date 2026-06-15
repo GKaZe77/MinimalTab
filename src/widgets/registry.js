@@ -1,14 +1,14 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { WeatherWidget }  from "./weather.widget.js?v=2026-06-14-3";
-import { TodoWidget }     from "./todo.widget.js?v=2026-06-14-3";
-import { NotesWidget }    from "./notes.widget.js?v=2026-06-14-3";
-import { RssWidget }      from "./rss.widget.js?v=2026-06-14-3";
-import { CalendarWidget } from "./calendar.widget.js?v=2026-06-14-3";
-import { GoalsWidget }    from "./goals.widget.js?v=2026-06-14-3";
-import { StatusWidget }   from "./status.widget.js?v=2026-06-14-3";
-import { SpotifyWidget }  from "./spotify.widget.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { WeatherWidget }  from "./weather.widget.js?v=2026-06-15-1";
+import { TodoWidget }     from "./todo.widget.js?v=2026-06-15-1";
+import { NotesWidget }    from "./notes.widget.js?v=2026-06-15-1";
+import { RssWidget }      from "./rss.widget.js?v=2026-06-15-1";
+import { CalendarWidget } from "./calendar.widget.js?v=2026-06-15-1";
+import { GoalsWidget }    from "./goals.widget.js?v=2026-06-15-1";
+import { StatusWidget }   from "./status.widget.js?v=2026-06-15-1";
+import { SpotifyWidget }  from "./spotify.widget.js?v=2026-06-15-1";
 
 export const WIDGET_REGISTRY = {
   weather:  WeatherWidget,

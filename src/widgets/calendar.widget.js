@@ -1,6 +1,6 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { esc } from "../core/dom.js?v=2026-06-14-3";
-import { fetchAndParseICS } from "../integrations/calendar-ics.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { esc } from "../core/dom.js?v=2026-06-15-1";
+import { fetchAndParseICS } from "../integrations/calendar-ics.js?v=2026-06-15-1";
 
 export const CalendarWidget = {
   id: "calendar",
