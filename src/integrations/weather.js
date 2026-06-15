@@ -1,4 +1,4 @@
-import { WEATHER_CODES } from "../core/constants.js?v=2026-06-14-3";
+﻿import { WEATHER_CODES } from "../core/constants.js?v=2026-06-15-1";
 
 let _cache = null;
 let _cacheTime = 0;

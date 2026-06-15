@@ -1,8 +1,8 @@
-// Spotify PKCE Authorization Code Flow
+﻿// Spotify PKCE Authorization Code Flow
 // No client secret required. Tokens stored in config.integrations.spotify.
 
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
+import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
 
 const SCOPES = "user-read-currently-playing user-read-playback-state user-modify-playback-state";
 

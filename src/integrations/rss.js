@@ -1,6 +1,6 @@
-// RSS/Atom feed fetcher and parser
+﻿// RSS/Atom feed fetcher and parser
 
-import { state, DEFAULT_RSS_PROXY_TEMPLATE } from "../core/config.js?v=2026-06-14-3";
+import { state, DEFAULT_RSS_PROXY_TEMPLATE } from "../core/config.js?v=2026-06-15-1";
 console.info("[RSS] patched proxy fallback build 2026-06-14-3 loaded");
 
 const _cache = new Map(); // url → { items, timestamp }
