@@ -1,6 +1,6 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { SEARCH_ENGINES, AI_ENGINES, SHORTCUT_URLS } from "../core/constants.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { SEARCH_ENGINES, AI_ENGINES, SHORTCUT_URLS } from "../core/constants.js?v=2026-06-15-1";
 
 let searchMode = "web";
 let _searchAbort = null;

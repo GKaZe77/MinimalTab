@@ -1,7 +1,7 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { esc, faviconUrl, uid } from "../core/dom.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { esc, faviconUrl, uid } from "../core/dom.js?v=2026-06-15-1";
 
 export function renderLinks() {
   const area = document.getElementById("links-area");

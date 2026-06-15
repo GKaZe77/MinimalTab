@@ -1,10 +1,10 @@
-// Layout editor — widget order and size management.
+﻿// Layout editor — widget order and size management.
 // Primary UI is rendered inside settings-modal.js (Layout tab and Widgets tab).
 // This module exposes helpers used by other parts of the app.
 
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig, resetConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
+import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig, resetConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
 
 export function moveWidget(id, direction) {
   const order = state.cfg.layout.widgetOrder;

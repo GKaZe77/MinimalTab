@@ -1,4 +1,4 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
 
 export function applyAppearance() {
   const a = state.cfg.appearance;
