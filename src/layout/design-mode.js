@@ -1,7 +1,7 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { renderBlocks, getDefaultPositions, ensurePositions, setRerenderHook } from "./blocks.js?v=2026-06-14-3";
-import { showToast } from "../ui/toast.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { renderBlocks, getDefaultPositions, ensurePositions, setRerenderHook } from "./blocks.js?v=2026-06-15-1";
+import { showToast } from "../ui/toast.js?v=2026-06-15-1";
 
 let _active = false;
 let _searchSetup = null;

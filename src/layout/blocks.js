@@ -1,9 +1,9 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { WIDGET_REGISTRY } from "../widgets/registry.js?v=2026-06-14-3";
-import { makeChip } from "../features/links.js?v=2026-06-14-3";
-import { esc } from "../core/dom.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { WIDGET_REGISTRY } from "../widgets/registry.js?v=2026-06-15-1";
+import { makeChip } from "../features/links.js?v=2026-06-15-1";
+import { esc } from "../core/dom.js?v=2026-06-15-1";
 
 // ── Block label map ─────────────────────────────────────────
 const WIDGET_NAMES = {
