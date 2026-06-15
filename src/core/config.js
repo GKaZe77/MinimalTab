@@ -1,4 +1,4 @@
-import { VERSION } from "./constants.js?v=2026-06-14-3";
+﻿import { VERSION } from "./constants.js?v=2026-06-15-1";
 
 export const DEFAULT_RSS_PROXY_TEMPLATE = "https://customtab-rss-proxy.gkaze77.workers.dev/?url={url}";
 

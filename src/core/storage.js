@@ -1,6 +1,6 @@
-import { STORAGE_KEY, OLD_KEYS, VERSION } from "./constants.js?v=2026-06-14-3";
-import { DEFAULT_CONFIG, DEFAULT_RSS_PROXY_TEMPLATE, state } from "./config.js?v=2026-06-14-3";
-import { bus, EV } from "./events.js?v=2026-06-14-3";
+﻿import { STORAGE_KEY, OLD_KEYS, VERSION } from "./constants.js?v=2026-06-15-1";
+import { DEFAULT_CONFIG, DEFAULT_RSS_PROXY_TEMPLATE, state } from "./config.js?v=2026-06-15-1";
+import { bus, EV } from "./events.js?v=2026-06-15-1";
 
 // Old Heartlight feed URL that must be migrated to the FeedBurner redirect.
 const HEARTLIGHT_OLD = "https://www.heartlight.org/rss/track/int/tv-en-kjv/";
