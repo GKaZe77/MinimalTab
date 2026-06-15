@@ -1,0 +1,187 @@
+/* ── Background layer ── */
+#bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+#bg-media {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(0px) brightness(0.65);
+  transform: scale(1.05);
+  transition: filter 0.4s ease, background-image 0.6s ease;
+}
+#bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,.18) 0%,
+    rgba(0,0,0,.38) 55%,
+    rgba(0,0,0,.5)  100%);
+  pointer-events: none;
+}
+body:not(.has-bg-image) #bg-overlay { display: none; }
+
+/* ── App layers ── */
+#focus-layer, #dash-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+}
+
+/* ── Focus layer ── */
+#focus-layer {
+  display: grid;
+  place-items: center;
+  cursor: default;
+  user-select: none;
+}
+.focus-content { text-align: center; }
+
+#f-clock {
+  font-size: clamp(4rem, 12vw, 7.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+#f-date {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 400;
+  opacity: 0.8;
+  margin-top: 0.7rem;
+}
+#f-greeting {
+  font-size: 0.95rem;
+  opacity: 0.5;
+  margin-top: 0.4rem;
+}
+#f-weather {
+  font-size: 0.875rem;
+  opacity: 0.45;
+  margin-top: 0.4rem;
+  letter-spacing: 0.01em;
+}
+#f-goals {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.f-goal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  font-size: 0.78rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.f-goal-chip.done {
+  color: var(--success);
+  border-color: color-mix(in srgb, var(--success) 40%, transparent);
+  text-decoration: line-through;
+  opacity: 0.65;
+}
+
+/* ── Dashboard layer ── */
+#dash-layer {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  scroll-behavior: smooth;
+}
+#dash-layer::-webkit-scrollbar { width: 0; }
+
+/* ── Revealed state ── */
+body.dash-on #focus-layer {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+body.dash-on #dash-layer {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+body.dash-on #top-bar {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ── Top bar ── */
+#top-bar {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 20;
+  display: flex;
+  gap: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+}
+
+/* ── Dashboard content ── */
+#dash-content {
+  width: 100%;
+  max-width: var(--dash-max-width-md, 680px);
+  min-width: 0;
+  margin: auto;
+  padding: 5.5rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Dashboard width variants */
+[data-dash-width="sm"] #dash-content { max-width: var(--dash-max-width-sm); }
+[data-dash-width="md"] #dash-content { max-width: var(--dash-max-width-md); }
+[data-dash-width="lg"] #dash-content { max-width: var(--dash-max-width-lg); }
+[data-dash-width="xl"] #dash-content { max-width: var(--dash-max-width-xl); }
+
+/* Density variants */
+[data-density="compact"] #dash-content { gap: 1.1rem; padding-top: 4rem; }
+[data-density="spacious"] #dash-content { gap: 2.25rem; padding-top: 7rem; }
+
+/* ── Focus hint ── */
+#focus-hint {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 15;
+  pointer-events: none;
+  white-space: nowrap;
+}
+body.dash-on #focus-hint { opacity: 0.55; }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+body.dash-on #dash-content {
+  animation: fadeUp var(--dur) var(--ease) both;
+}

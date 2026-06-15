@@ -1,0 +1,101 @@
+/* ── Mobile: small screens ── */
+@media (max-width: 480px) {
+  #f-clock { font-size: clamp(3.5rem, 18vw, 5rem); }
+
+  #dash-content {
+    padding: 4.5rem 0 2.5rem;
+    gap: 1.25rem;
+  }
+
+  /* Stack settings tabs horizontally */
+  #settings-tabs {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    overflow-x: auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    flex-shrink: 0;
+  }
+  .tab-btn { white-space: nowrap; padding: 0.55rem 0.85rem; }
+  .modal-body { flex-direction: column; }
+  #settings-content { padding: 0.9rem 1rem; }
+
+  .s-input-wide { min-width: 140px; }
+  .s-row { flex-wrap: wrap; }
+  .s-ctrl { flex-wrap: wrap; }
+
+  /* Quick open full width on mobile */
+  #quick-panel { width: 95%; }
+  #quick-open { padding-top: 5vh; align-items: flex-start; }
+
+  /* Widget tiles stack on mobile — override all size variants */
+  .widget-tile,
+  .widget-tile[data-size] { flex: 1 1 100%; }
+
+  /* Onboarding */
+  #onboarding-panel { max-height: 96vh; }
+  .ob-style-grid { grid-template-columns: repeat(2, 1fr); }
+  .ob-footer { flex-wrap: wrap; }
+
+  /* Search bar adaptations */
+  #search-modes { display: none; }
+  #search-bar { padding: 0.4rem 0.55rem; }
+}
+
+/* ── Tablet: medium screens ── */
+@media (min-width: 481px) and (max-width: 768px) {
+  #dash-content { padding: 5rem 0 2.5rem; }
+
+  .widget-tile[data-size="small"]  { flex: 0 0 160px; }
+  .widget-tile[data-size="medium"] { flex: 1 1 200px; }
+
+  #settings-tabs {
+    width: 120px;
+  }
+}
+
+/* ── Desktop: large screens ── */
+@media (min-width: 769px) {
+  #dash-content { padding: 5.5rem 0 4rem; }
+
+  .widget-tile[data-size="small"]  { flex: 0 0 180px; }
+  .widget-tile[data-size="medium"] { flex: 1 1 240px; }
+  .widget-tile[data-size="large"]  { flex: 1 1 380px; }
+  .widget-tile[data-size="tall"]   { flex: 1 1 380px; }
+  .widget-tile[data-size="wide"]   { flex: 1 1 100%; }
+}
+
+/* ── Large desktop ── */
+@media (min-width: 1200px) {
+  #top-bar { top: 1.5rem; right: 1.5rem; }
+}
+
+/* ── Touch device adjustments ── */
+@media (hover: none) and (pointer: coarse) {
+  /* Ensure tap targets are large enough */
+  .link-chip { min-height: 40px; padding: 0.5rem 0.9rem; }
+  .icon-btn  { width: 42px; height: 42px; }
+  .s-toggle  { width: 44px; height: 24px; }
+  .s-track::after { width: 18px; height: 18px; }
+  .s-toggle input:checked ~ .s-track::after { transform: translateX(20px); }
+
+  /* Show open-all button on touch (no hover) */
+  .folder-open-all { opacity: 0.6; }
+
+  /* Context menu via long-press handled in JS */
+  .link-chip { -webkit-tap-highlight-color: transparent; }
+
+  /* Tile action buttons always visible on touch */
+  .tile-action-btn { opacity: 0.7; }
+
+  /* Quick open full height */
+  #quick-open { padding-top: 0; align-items: flex-end; }
+  #quick-panel {
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  #quick-results { max-height: 55vh; }
+}
