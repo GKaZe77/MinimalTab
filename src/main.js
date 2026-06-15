@@ -1,21 +1,21 @@
-// CustomTab v5 — main entry point
-import { initStorage, detectOldKeys, saveConfig } from "./core/storage.js?v=2026-06-14-3";
-import { state } from "./core/config.js?v=2026-06-14-3";
-import { bus, EV } from "./core/events.js?v=2026-06-14-3";
-import { applyAppearance, applyBackground } from "./features/appearance.js?v=2026-06-14-3";
-import { initFocusView, updateFocusWeather } from "./ui/focus-view.js?v=2026-06-14-3";
-import { setupFocusHandlers, applyLayoutAttrs } from "./ui/app-shell.js?v=2026-06-14-3";
-import { setupSearch } from "./features/search.js?v=2026-06-14-3";
-import { renderBlocks, setSearchSetupFn } from "./layout/blocks.js?v=2026-06-14-3";
-import { initDesignMode } from "./layout/design-mode.js?v=2026-06-14-3";
-import { setupContextMenu } from "./ui/context-menu.js?v=2026-06-14-3";
-import { initQuickOpen } from "./ui/quick-open.js?v=2026-06-14-3";
-import { initSettings } from "./ui/settings-modal.js?v=2026-06-14-3";
-import { checkOnboarding } from "./ui/onboarding.js?v=2026-06-14-3";
-import { showToast } from "./ui/toast.js?v=2026-06-14-3";
-import { handleSpotifyCallback } from "./integrations/spotify.js?v=2026-06-14-3";
-import { fetchWeather, clearWeatherCache } from "./integrations/weather.js?v=2026-06-14-3";
-console.info("[CustomTab] main build 2026-06-14-3 loaded");
+﻿// CustomTab v5 — main entry point
+import { initStorage, detectOldKeys, saveConfig } from "./core/storage.js?v=2026-06-15-1";
+import { state } from "./core/config.js?v=2026-06-15-1";
+import { bus, EV } from "./core/events.js?v=2026-06-15-1";
+import { applyAppearance, applyBackground } from "./features/appearance.js?v=2026-06-15-1";
+import { initFocusView, updateFocusWeather } from "./ui/focus-view.js?v=2026-06-15-1";
+import { setupFocusHandlers, applyLayoutAttrs } from "./ui/app-shell.js?v=2026-06-15-1";
+import { setupSearch } from "./features/search.js?v=2026-06-15-1";
+import { renderBlocks, setSearchSetupFn } from "./layout/blocks.js?v=2026-06-15-1";
+import { initDesignMode } from "./layout/design-mode.js?v=2026-06-15-1";
+import { setupContextMenu } from "./ui/context-menu.js?v=2026-06-15-1";
+import { initQuickOpen } from "./ui/quick-open.js?v=2026-06-15-1";
+import { initSettings } from "./ui/settings-modal.js?v=2026-06-15-4";
+import { checkOnboarding } from "./ui/onboarding.js?v=2026-06-15-1";
+import { showToast } from "./ui/toast.js?v=2026-06-15-1";
+import { handleSpotifyCallback } from "./integrations/spotify.js?v=2026-06-15-1";
+import { fetchWeather, clearWeatherCache } from "./integrations/weather.js?v=2026-06-15-1";
+console.info("[CustomTab] main build 2026-06-15-4 loaded");
 
 async function boot() {
   // 1. Load config (must be first)
