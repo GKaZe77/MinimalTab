@@ -1,10 +1,10 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { esc, trapFocus } from "../core/dom.js?v=2026-06-14-3";
-import { applyAppearance, applyBackground } from "../features/appearance.js?v=2026-06-14-3";
-import { STYLE_PRESETS } from "../core/constants.js?v=2026-06-14-3";
-import { showToast } from "./toast.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { esc, trapFocus } from "../core/dom.js?v=2026-06-15-1";
+import { applyAppearance, applyBackground } from "../features/appearance.js?v=2026-06-15-1";
+import { STYLE_PRESETS } from "../core/constants.js?v=2026-06-15-1";
+import { showToast } from "./toast.js?v=2026-06-15-1";
 
 const ACCENT_PRESETS = ["#a78bfa","#00ffff","#f9a8d4","#4ade80","#fbbf24","#f87171","#60a5fa","#e5e5e5"];
 
@@ -43,7 +43,7 @@ function finish(action = "start") {
   if (action === "settings") {
     bus.emit(EV.SETTINGS_OPEN);
   } else if (action === "start") {
-    import("./app-shell.js?v=2026-06-14-3").then(m => m.showDash(true));
+    import("./app-shell.js?v=2026-06-15-1").then(m => m.showDash(true));
   }
   showToast("Welcome to CustomTab!");
 }

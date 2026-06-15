@@ -1,10 +1,10 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { esc } from "../core/dom.js?v=2026-06-14-3";
-import { doSearch } from "../features/search.js?v=2026-06-14-3";
-import { showToast } from "./toast.js?v=2026-06-14-3";
-import { exportConfig, saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { hideDash, showDash } from "./app-shell.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { esc } from "../core/dom.js?v=2026-06-15-1";
+import { doSearch } from "../features/search.js?v=2026-06-15-1";
+import { showToast } from "./toast.js?v=2026-06-15-1";
+import { exportConfig, saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { hideDash, showDash } from "./app-shell.js?v=2026-06-15-1";
 
 const qEl = () => document.getElementById("quick-open");
 const qInp = () => document.getElementById("quick-input");
@@ -146,7 +146,7 @@ function toggleDarkMode() {
   const next = modes[(modes.indexOf(cur) + 1) % modes.length];
   state.cfg.appearance.mode = next;
   saveConfig();
-  import("../features/appearance.js?v=2026-06-14-3").then(m => m.applyAppearance());
+  import("../features/appearance.js?v=2026-06-15-1").then(m => m.applyAppearance());
   showToast(`Color mode: ${next}`);
 }
 

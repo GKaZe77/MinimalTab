@@ -1,7 +1,7 @@
-import { state } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { showToast } from "./toast.js?v=2026-06-14-3";
+﻿import { state } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { showToast } from "./toast.js?v=2026-06-15-1";
 
 const menu = () => document.getElementById("link-ctx");
 

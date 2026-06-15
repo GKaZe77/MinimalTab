@@ -1,11 +1,11 @@
-import { state, DEFAULT_RSS_PROXY_TEMPLATE } from "../core/config.js?v=2026-06-14-3";
-import { saveConfig, exportConfig, importConfig, resetConfig } from "../core/storage.js?v=2026-06-14-3";
-import { bus, EV } from "../core/events.js?v=2026-06-14-3";
-import { esc, uid, $, trapFocus } from "../core/dom.js?v=2026-06-14-3";
-import { applyAppearance, applyBackground } from "../features/appearance.js?v=2026-06-14-3";
-import { renderLinks } from "../features/links.js?v=2026-06-14-3";
-import { showToast } from "./toast.js?v=2026-06-14-3";
-import { SEARCH_ENGINES, AI_ENGINES, STYLE_PRESETS } from "../core/constants.js?v=2026-06-14-3";
+﻿import { state, DEFAULT_RSS_PROXY_TEMPLATE } from "../core/config.js?v=2026-06-15-1";
+import { saveConfig, exportConfig, importConfig, resetConfig } from "../core/storage.js?v=2026-06-15-1";
+import { bus, EV } from "../core/events.js?v=2026-06-15-1";
+import { esc, uid, $, trapFocus } from "../core/dom.js?v=2026-06-15-1";
+import { applyAppearance, applyBackground } from "../features/appearance.js?v=2026-06-15-1";
+import { renderLinks } from "../features/links.js?v=2026-06-15-1";
+import { showToast } from "./toast.js?v=2026-06-15-1";
+import { SEARCH_ENGINES, AI_ENGINES, STYLE_PRESETS } from "../core/constants.js?v=2026-06-15-1";
 
 const TABS = [
   { id: "appearance",   label: "Appearance" },
@@ -31,7 +31,7 @@ export function openSettings(tab = "appearance") {
   buildTabs();
   selectTab(tab || activeTab);
   releaseFocusTrap = trapFocus(modal);
-  import("./app-shell.js?v=2026-06-14-3").then(m => m.showDash());
+  import("./app-shell.js?v=2026-06-15-1").then(m => m.showDash());
 }
 
 export function closeSettings() {
@@ -293,12 +293,12 @@ function renderLayout(el) {
 
   el.querySelector("#layout-mode-auto")?.addEventListener("click", () => {
     layout.mode = "auto"; saveConfig();
-    import("../layout/blocks.js?v=2026-06-14-3").then(m => m.renderBlocks());
+    import("../layout/blocks.js?v=2026-06-15-1").then(m => m.renderBlocks());
     renderLayout(el);
   });
   el.querySelector("#layout-mode-custom")?.addEventListener("click", () => {
     layout.mode = "custom";
-    import("../layout/blocks.js?v=2026-06-14-3").then(({ ensurePositions, renderBlocks }) => {
+    import("../layout/blocks.js?v=2026-06-15-1").then(({ ensurePositions, renderBlocks }) => {
       ensurePositions(layout); saveConfig(); renderBlocks();
     });
     renderLayout(el);
@@ -312,7 +312,7 @@ function renderLayout(el) {
   });
 
   el.querySelector("#open-design-mode-btn")?.addEventListener("click", () => {
-    import("../layout/design-mode.js?v=2026-06-14-3").then(m => {
+    import("../layout/design-mode.js?v=2026-06-15-1").then(m => {
       bus.emit(EV.SETTINGS_CLOSE);
       m.enterDesignMode();
     });
@@ -324,8 +324,8 @@ function renderLayout(el) {
     layout.blocks     = {};
     layout.mode       = "auto";
     saveConfig();
-    import("./app-shell.js?v=2026-06-14-3").then(m => m.applyLayoutAttrs());
-    import("../layout/blocks.js?v=2026-06-14-3").then(m => m.renderBlocks());
+    import("./app-shell.js?v=2026-06-15-1").then(m => m.applyLayoutAttrs());
+    import("../layout/blocks.js?v=2026-06-15-1").then(m => m.renderBlocks());
     renderLayout(el);
     showToast("Layout reset to defaults");
   });
@@ -403,7 +403,7 @@ function renderFocus(el) {
   el.querySelector("#f-return")?.addEventListener("change", (e) => {
     f.returnAfter = +e.target.value;
     saveConfig();
-    import("./app-shell.js?v=2026-06-14-3").then(m => m.resetInactivity());
+    import("./app-shell.js?v=2026-06-15-1").then(m => m.resetInactivity());
   });
 }
 
@@ -768,7 +768,7 @@ function renderFeedList(list, w) {
 }
 
 function showRssPresetPicker(parent, w) {
-  import("../integrations/rss.js?v=2026-06-14-3").then(({ RSS_PRESETS }) => {
+  import("../integrations/rss.js?v=2026-06-15-1").then(({ RSS_PRESETS }) => {
     const overlay = document.createElement("div");
     overlay.style.cssText = "position:fixed;inset:0;z-index:9900;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)";
     const panel = document.createElement("div");
@@ -1025,10 +1025,10 @@ function renderSpotifyBody(el, w) {
   el.querySelector("#sp-poll")?.addEventListener("change", (e) => { w.pollSeconds = +e.target.value; saveConfig(); });
 
   el.querySelector("#sp-connect")?.addEventListener("click", () => {
-    import("../integrations/spotify.js?v=2026-06-14-3").then(m => m.startSpotifyAuth(sp.clientId));
+    import("../integrations/spotify.js?v=2026-06-15-1").then(m => m.startSpotifyAuth(sp.clientId));
   });
   el.querySelector("#sp-disconnect")?.addEventListener("click", () => {
-    import("../integrations/spotify.js?v=2026-06-14-3").then(m => {
+    import("../integrations/spotify.js?v=2026-06-15-1").then(m => {
       m.disconnectSpotify();
       bus.emit(EV.WIDGETS_CHANGED);
       renderSpotifyBody(el, w);
@@ -1086,6 +1086,7 @@ function renderPrivacy(el) {
         </label>
       </div>
     `).join("")}
+
   `;
 
   el.querySelectorAll(".priv-tog").forEach(cb => {
@@ -1188,7 +1189,7 @@ function renderHelp(el) {
     state.cfg.onboarding.completed = false;
     saveConfig();
     closeSettings();
-    import("./onboarding.js?v=2026-06-14-3").then(m => m.startOnboarding());
+    import("./onboarding.js?v=2026-06-15-1").then(m => m.startOnboarding());
   });
 }
 
@@ -1214,6 +1215,7 @@ function renderAdvanced(el) {
     <div class="about-card">
       <p><strong>Privacy</strong></p>
       <p style="margin-top:.5rem">Your setup is stored locally. No analytics. No tracking. No account required. External calls are opt-in — see the Privacy tab.</p>
+      <a href="https://github.com/GKaZe77/MinimalTab" target="_blank" rel="noopener noreferrer" class="repo-link">⭐ GitHub Repository</a>
     </div>
     <div class="about-card">
       <p><strong>Support</strong></p>
