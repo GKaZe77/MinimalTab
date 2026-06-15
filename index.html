@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-style="glass" data-mode="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CustomTab</title>
+  <link rel="icon" type="image/png" href="fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- v5 styles -->
+  <link rel="stylesheet" href="src/styles/tokens.css" />
+  <link rel="stylesheet" href="src/styles/base.css" />
+  <link rel="stylesheet" href="src/styles/layout.css?v=2026-06-14-3" />
+  <link rel="stylesheet" href="src/styles/components.css?v=2026-06-14-3" />
+  <link rel="stylesheet" href="src/styles/widgets.css?v=2026-06-14-3" />
+  <link rel="stylesheet" href="src/styles/settings.css?v=2026-06-14-3" />
+  <link rel="stylesheet" href="src/styles/blocks.css?v=2026-06-14-3" />
+  <link rel="stylesheet" href="src/styles/onboarding.css" />
+  <link rel="stylesheet" href="src/styles/responsive.css?v=2026-06-14-3" />
+</head>
+<body>
+
+  <!-- Background layer -->
+  <div id="bg-layer">
+    <div id="bg-media"></div>
+    <div id="bg-overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- Focus layer (default visible) -->
+  <div id="focus-layer" aria-label="Focus view">
+    <div class="focus-content">
+      <div id="f-clock" aria-live="off" aria-atomic="true">00:00</div>
+      <div id="f-date"></div>
+      <div id="f-greeting"></div>
+      <div id="f-weather" hidden></div>
+      <div id="f-goals" hidden></div>
+    </div>
+  </div>
+
+  <!-- Top bar (shown when dashboard is open) -->
+  <div id="top-bar">
+    <button class="icon-btn" id="focus-btn"  title="Back to focus (F)" aria-label="Return to focus view">◎</button>
+    <button class="icon-btn" id="favs-btn"   title="Open favorite links" aria-label="Open all favorite links">★</button>
+    <button class="icon-btn" id="design-btn" title="Design mode — drag and resize dashboard blocks" aria-label="Toggle design mode">⊞</button>
+    <button class="icon-btn" id="settings-btn" title="Settings" aria-label="Open settings">⚙</button>
+  </div>
+
+  <!-- Dashboard layer -->
+  <div id="dash-layer" aria-hidden="true">
+    <div id="dash-content">
+      <!-- All dashboard blocks rendered here by blocks.js -->
+      <div id="blocks-container" class="blocks-container mode-auto" aria-label="Dashboard"></div>
+    </div>
+  </div>
+
+  <!-- Quick Open (Ctrl/Cmd+K) -->
+  <div id="quick-open" role="dialog" aria-modal="true" aria-label="Quick Open" hidden>
+    <div id="quick-backdrop"></div>
+    <div id="quick-panel">
+      <div id="quick-header">
+        <span class="q-icon" aria-hidden="true">⌘</span>
+        <input id="quick-input" type="text"
+               placeholder="Search links, run actions…"
+               autocomplete="off" aria-label="Quick search" />
+        <kbd id="quick-esc">esc</kbd>
+      </div>
+      <div id="quick-results" role="listbox" aria-label="Results"></div>
+    </div>
+  </div>
+
+  <!-- Settings modal -->
+  <div id="settings-modal" class="modal-wrap" role="dialog"
+       aria-modal="true" aria-label="Settings" hidden>
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button class="modal-close" id="settings-close" aria-label="Close settings">✕</button>
+      </div>
+      <div class="modal-body">
+        <nav id="settings-tabs" aria-label="Settings sections"></nav>
+        <div id="settings-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onboarding wizard -->
+  <div id="onboarding-modal" role="dialog" aria-modal="true" aria-label="Welcome to CustomTab" hidden>
+    <div id="onboarding-backdrop"></div>
+    <div id="onboarding-panel"></div>
+  </div>
+
+  <!-- Migration notice (old config detected) -->
+  <div id="migration-notice" hidden>
+    <div class="migration-title">⚠ Older setup found</div>
+    <p>We found an older CustomTab or MinimalTab setup. v5 uses a new structure — your previous settings will not be automatically migrated.</p>
+    <p style="margin-top:.4rem;font-size:.82rem;color:var(--muted)">You can export your old data from your browser's localStorage before starting fresh.</p>
+    <div class="migration-actions">
+      <button class="s-btn ghost sm" data-settings>Backup &amp; Restore</button>
+      <button class="s-btn ghost sm" data-dismiss>Dismiss</button>
+    </div>
+  </div>
+
+  <!-- Design mode toolbar -->
+  <div id="design-toolbar" hidden aria-label="Design mode controls">
+    <span id="design-toolbar-label">Design</span>
+    <span id="design-mode-label" class="dtb-mode">Auto</span>
+    <button class="dtb-btn" id="design-mode-toggle-btn" title="Switch between auto and custom grid mode">Switch mode</button>
+    <button class="dtb-btn" id="design-reset-btn">Reset layout</button>
+    <button class="dtb-btn dtb-primary" id="design-done-btn">✓ Done</button>
+  </div>
+
+  <!-- Link context menu -->
+  <div id="link-ctx" role="menu" aria-label="Link options" hidden></div>
+
+  <!-- Hidden file input for config import -->
+  <input id="import-file" type="file" accept="application/json" hidden aria-hidden="true" />
+
+  <!-- Toast notification -->
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Focus hint -->
+  <div id="focus-hint" aria-hidden="true">Press F to return to focus</div>
+
+  <script type="module" src="src/main.js?v=2026-06-14-3"></script>
+</body>
+</html>
